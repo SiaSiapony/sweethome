@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 = title 
+  ul
+    for hom in ing
+      li.listItem(class=hom.unit ? "unit" : "")
+        | Name: #{hom.name}
+        | Unit: #{hom.unit}
+
+    else
+      p No Todos Found
