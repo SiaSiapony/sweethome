@@ -124,91 +124,42 @@ html(lang='en')
     |   
     br
     // ส่วนของตาราง
-    .container
-      table.table.table-dark.table-striped.table-bordered.text-center
-        // Nav tabs
-        thead
+    .table-data
+      | &lt;%
+      | if(ingreData.length!=0){
+      | var i=1;
+      | ingreData.forEach(function(data){
+      | %&gt;
+      | &lt;%  i++; }) %&gt;
+      | &lt;% } else{ %&gt;
+      | &lt;% } %&gt;
+      table(border='1')
+        tbody
           tr
             th ID
-            th(<th='') Ingredient
+            |             
+            th Name 
+            |             
+            th Amount
             |             
             th Unit
             |             
             th Edit
             |             
             th Delete
-        |         
-        tbody
           tr
-            td 001
+            td &lt;%=i; %&gt;
             |             
-            td &#xE19;&#xE21;&#xE02;&#xE49;&#xE19;&#xE2B;&#xE27;&#xE32;&#xE19;
+            td &lt;%=data.name %&gt;
             |             
-            td &#xE21;&#xE34;&#xE25;&#xE25;&#xE34;&#xE01;&#xE23;&#xE31;&#xE21;
+            td &lt;%=data.amount %&gt;
             |             
-            td 1000
+            td &lt;%=data.unit %&gt;
             |             
             td
-              button.btn.btn-danger(type='button') Delete
-          |           
-          tr
-            td 002
-            |             
-            td &#xE1C;&#xE07;&#xE42;&#xE01;&#xE42;&#xE01;&#xE49;
-            |             
-            td &#xE0A;&#xE49;&#xE2D;&#xE19;&#xE42;&#xE15;&#xE4A;&#xE30;
-            |             
-            td 500
+              a(href='#') Edit
+              //'/edit/<%=data.id%>'
             |             
             td
-              button.btn.btn-danger(type='button') Delete
-          |           
-          tr
-            td 003
-            |             
-            td &#xE19;&#xE21;&#xE02;&#xE49;&#xE19;&#xE08;&#xE37;&#xE14;
-            |             
-            td &#xE21;&#xE34;&#xE25;&#xE25;&#xE34;&#xE01;&#xE23;&#xE31;&#xE21;
-            |             
-            td 1000
-            |             
-            td
-              button.btn.btn-danger(type='button') Delete
-          |           
-          tr
-            td 004
-            |             
-            td &#xE19;&#xE21;&#xE2A;&#xE14;
-            |             
-            td &#xE21;&#xE34;&#xE25;&#xE25;&#xE34;&#xE01;&#xE23;&#xE31;&#xE21;
-            |             
-            td 1000
-            |             
-            td
-              button.btn.btn-danger(type='button') Delete
-          |           
-          tr
-            td 005
-            |             
-            td &#xE27;&#xE34;&#xE1B;&#xE1B;&#xE34;&#xE49;&#xE07;&#xE04;&#xE23;&#xE35;&#xE21;
-            |             
-            td &#xE21;&#xE34;&#xE25;&#xE25;&#xE34;&#xE01;&#xE23;&#xE31;&#xE21;
-            |             
-            td 2000
-            |             
-            td
-              button.btn.btn-danger(type='button') Delete
-          |           
-          tr
-            td 006
-            |             
-            td &#xE19;&#xE49;&#xE33;&#xE15;&#xE32;&#xE25;&#xE17;&#xE23;&#xE32;&#xE22;&#xE41;&#xE14;&#xE07;
-            |             
-            td &#xE01;&#xE23;&#xE31;&#xE21;
-            |             
-            td 1000
-            |             
-            td
-              button.btn.btn-danger(type='button') Delete
-    |     
-    script(src='ingre.js')
+              a(href='#') Delete
+              //'/delete/<%=data.id%>'

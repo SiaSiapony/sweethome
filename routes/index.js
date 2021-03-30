@@ -8,6 +8,10 @@ router.get('/', async function(req, res, next) {
   res.render('index', {title: "Ing", ing: ing})
 });
 
+/* table controller */
+var ingredientController= require('../controller/ingredient');
+router.post('/ingredient', ingredientController.ingredientData);
+
 /* page */
 router.get('/ingredient', function(req,res,next){
   res.render('ingredient');
