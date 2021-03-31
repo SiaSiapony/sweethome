@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Page Kitchen
+    title Page Salse
     // Bootstrap CSS
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous')
     script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
@@ -20,28 +20,28 @@ html(lang='en')
             .dropdown-menu.bg-dark(style='text-align: left; width: 267px; height: 744px; margin-left: -17px;')
               a.navbar-brand.text-light
                 br
-                img(src='https://i.pinimg.com/originals/29/33/3e/29333e1d6c912d924a80157ab1e4b645.png' alt='logo' style='width:75px; padding-left: 25px;')
-                |                 Staff Name: PP
+                img(src='img/chameleon.png' alt='logo' style='width:75px; padding-left: 25px;')
+                |                 Staff Name: Pop
                 br
                 br
-              a.dropdown-item(style='color: black;' href='/ingredient')
-                img(src='https://i.pinimg.com/originals/3d/ec/73/3dec73eefb1eb4fdae1a7a0e49b5c936.png' alt='logo' style='width: 45px; margin-left: 10px;')
+              a.dropdown-item(style='color: black;' href='ingredient.html')
+                img(src='img/harvest.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลวัตถุดิบ
               hr(width='200px' size='5' color='white')
-              a.dropdown-item(style='color: black;' href='/menu')
-                img(src='https://i.pinimg.com/originals/19/b3/b3/19b3b369892b34d4c4367bd6494529a4.png' alt='logo' style='width: 45px; margin-left: 10px;')
+              a.dropdown-item(style='color: black;' href='index.html')
+                img(src='img/cupcake.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลของหวาน
               hr(width='200px' size='5' color='white')
-              a.dropdown-item(style='color: black;' href='/cashier')
-                img(src='https://i.pinimg.com/originals/93/c6/be/93c6be305c1d7d3a0dd02993ff031f69.png' alt='logo' style='width: 45px; margin-left: 10px;')
+              a.dropdown-item(style='color: black;' href='cashier.html')
+                img(src='img/cheque.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลการขาย
               hr(width='200px' size='5' color='white')
-              a.dropdown-item(style='color: black;' href='/cook')
-                img(src='https://i.pinimg.com/originals/98/82/ec/9882ec514a7646b304d06f8f42a15a0c.png' alt='logo' style='width: 45px; margin-left: 10px;')
+              a.dropdown-item(style='color: black;' href='cook.html')
+                img(src='img/cooking.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลฝ่ายห้องครัว
               hr(width='200px' size='5' color='white')
               a.dropdown-item(style='color: black;' href='#')
-                img(src='https://i.pinimg.com/originals/5c/44/92/5c44929ceecbafc93b5bf1320aeb574f.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                img(src='img/delivery-man.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลการจัดส่ง
               hr(width='200px' size='5' color='white')
               br
@@ -49,9 +49,10 @@ html(lang='en')
                 button.btn.btn-danger.btn-block(type='button') Logout
       // Brand/logo
       a.navbar-brand MamaPenguin
-      img(src='https://i.pinimg.com/originals/13/b9/9a/13b99aab8bc10571cb6d0fc155f05a12.png' alt='logo' style='width:40px;')
+      img(src='img/logopen.png' alt='logo' style='width:40px;')
     .container.p-3.my-3
-      h1.text-black.text-center ตารางจัดการข้อมูลฝ่ายครัว
+      h1.text-black.text-center ตารางจัดการข้อมูลการขาย
+      hr(width='45%' style='border: 2px solid rgb(250, 247, 247);')
     br
     // ส่วนของตาราง
     .container
@@ -65,64 +66,14 @@ html(lang='en')
             th Amount
             th Status
             th Choose an order list
+            th Cancel order
         tbody
           tr
             td 001
-            td 12-02-64 09:20:01
-            td Waffle,Blueberry +5,ค่าจัดส่ง 5บาท
+            td 12-02-64 10:40:07
+            td Waffle,บราวนี่ +10
             td 1
             td Delivery
-            td
-              button.btn.btn-success(type='button' data-toggle='modal' data-target='#myModal')
-                | Choose
-              // The Modal
-              #myModal.modal
-                .modal-dialog.modal-dialog-centered
-                  .modal-content.bg-dark
-                    // Modal Header
-                    .modal-header
-                      h4.modal-title.text-light ----------------- คำสั่งซื้อ -----------------
-                      button.close(type='button' data-dismiss='modal') ×
-                    // Modal body
-                    .modal-body
-                      table.table.table-dark.table-borderless
-                        thead.thead-dark
-                          tr
-                            th รหัส
-                            th รายการคำสั่งซื้อ
-                            th ราคา (Baht)
-                            th สถานะ
-                        tbody
-                          tr
-                            td 001
-                            td Waffle
-                            td 125
-                            td Delivery
-                          tr
-                            td
-                            td Blueberry
-                            td 5
-                            td
-                          tr
-                            td
-                            td ค่าจัดส่ง
-                            td 5
-                            td
-                          tr
-                            td จำนวน
-                            td 1 รายการ
-                            td ราคารวม
-                            td 135 /Baht
-                      button.btn.btn-success(type='submit' value='Submit') Completed
-                    // Modal footer
-                    .modal-footer
-                      button.btn.btn-danger(type='button' data-dismiss='modal') Close
-          tr
-            td 002
-            td 12-02-64 09:24:05
-            td Cake, Ice-cream +10
-            td 2
-            td Take Home
             td
               button.btn.btn-success(type='button' data-toggle='modal' data-target='#myModal1')
                 | Choose
@@ -145,29 +96,36 @@ html(lang='en')
                             th สถานะ
                         tbody
                           tr
-                            td 002
-                            td Cake
-                            td 45
-                            td Take Home
+                            td 001
+                            td Waffle
+                            td 120
+                            td Delivery
                           tr
                             td
-                            td Ice-cream
+                            td บราวนี่
                             td 10
                             td
                           tr
+                            td
+                            td ค่าจัดส่ง
+                            td 15
+                            td
+                          tr
                             td จำนวน
-                            td 2 รายการ
+                            td 1 รายการ
                             td ราคารวม
-                            td 100 /Baht
-                      button.btn.btn-success(type='submit' value='Submit') Completed
+                            td 145 /Baht
+                      button.btn.btn-success(type='submit' value='Submit') Submit
                     // Modal footer
                     .modal-footer
                       button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Cancle
           tr
-            td 003
-            td 12-02-64 09:25:30
-            td Macaroons
-            td 5
+            td 002
+            td 12-02-64 10:40:07
+            td Bingsu,สตรอเบอร์รี่ +15
+            td 2
             td Seat
             td
               button.btn.btn-success(type='button' data-toggle='modal' data-target='#myModal2')
@@ -191,25 +149,32 @@ html(lang='en')
                             th สถานะ
                         tbody
                           tr
-                            td 003
-                            td Macaroons
-                            td 25
-                            td Seat
+                            td 002
+                            td Bingsu
+                            td 125
+                            td Take Home
+                          tr
+                            td
+                            td สตรอเบอร์รี่
+                            td 15
+                            td
                           tr
                             td จำนวน
-                            td 5 รายการ
+                            td 2 รายการ
                             td ราคารวม
-                            td 125 /Baht
-                      button.btn.btn-success(type='submit' value='Submit') Completed
+                            td 280 /Baht
+                      button.btn.btn-success(type='submit' value='Submit') Submit
                     // Modal footer
                     .modal-footer
                       button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Cancle
           tr
-            td 004
-            td 12-02-64 10:30:28
-            td Bingsu,Brownies +10,ค่าจัดส่ง 10บาท
+            td 003
+            td 12-02-64 09:20:01
+            td Ice-cream Green tea,นูเทลล่า +20
             td 1
-            td Delivery
+            td Take Home
             td
               button.btn.btn-success(type='button' data-toggle='modal' data-target='#myModal3')
                 | Choose
@@ -232,34 +197,31 @@ html(lang='en')
                             th สถานะ
                         tbody
                           tr
-                            td 004
-                            td Bingsu
-                            td 125
-                            td Delivery
+                            td 003
+                            td Ice-cream Green tea
+                            td 45
+                            td Take Home
                           tr
                             td
-                            td Brownies
-                            td 10
-                            td
-                          tr
-                            td
-                            td ค่าจัดส่ง
-                            td 10
+                            td นูเทลล่า
+                            td 20
                             td
                           tr
                             td จำนวน
                             td 1 รายการ
                             td ราคารวม
-                            td 145 /Baht
-                      button.btn.btn-success(type='submit' value='Submit') Completed
+                            td 65 /Baht
+                      button.btn.btn-success(type='submit' value='Submit') Submit
                     // Modal footer
                     .modal-footer
                       button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Cancle
           tr
-            td 005
-            td 12-02-64 10:40:07
-            td Pancake,Blueberry +5
-            td 3
+            td 004
+            td 12-02-64 09:24:05
+            td Cake Ice-cream
+            td 1
             td Take Home
             td
               button.btn.btn-success(type='button' data-toggle='modal' data-target='#myModal4')
@@ -283,22 +245,115 @@ html(lang='en')
                             th สถานะ
                         tbody
                           tr
-                            td 005
-                            td Pancake
-                            td 45
+                            td 004
+                            td Cake Ice-cream
+                            td 200
                             td Take Home
                           tr
-                            td
-                            td Blueberry
-                            td 5
-                            td
-                          tr
                             td จำนวน
-                            td 3 รายการ
+                            td 1 รายการ
                             td ราคารวม
-                            td 140 /Baht
-                      button.btn.btn-success(type='submit' value='Submit') Completed
+                            td 200 /Baht
+                      button.btn.btn-success(type='submit' value='Submit') Submit
                     // Modal footer
                     .modal-footer
                       button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Cancle
+          tr
+            td 005
+            td 12-02-64 09:25:30
+            td Pancake
+            td 1
+            td Seat
+            td
+              button.btn.btn-success(type='button' data-toggle='modal' data-target='#myModal5')
+                | Choose
+              // The Modal
+              #myModal5.modal
+                .modal-dialog.modal-dialog-centered
+                  .modal-content.bg-dark
+                    // Modal Header
+                    .modal-header
+                      h4.modal-title.text-light ----------------- คำสั่งซื้อ -----------------
+                      button.close(type='button' data-dismiss='modal') ×
+                    // Modal body
+                    .modal-body
+                      table.table.table-dark.table-borderless
+                        thead.thead-dark
+                          tr
+                            th รหัส
+                            th รายการคำสั่งซื้อ
+                            th ราคา (Baht)
+                            th สถานะ
+                        tbody
+                          tr
+                            td 005
+                            td Pancake
+                            td 99
+                            td Seat
+                          tr
+                            td จำนวน
+                            td 1 รายการ
+                            td ราคารวม
+                            td 99 /Baht
+                      button.btn.btn-success(type='submit' value='Submit') Submit
+                    // Modal footer
+                    .modal-footer
+                      button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Cancle
+          tr
+            td 006
+            td 12-02-64 10:30:28
+            td Pie,สตรอเบอร์รี่ +15,ค่าจัดส่ง 10บาท
+            td 1
+            td Delivery
+            td
+              button.btn.btn-success(type='button' data-toggle='modal' data-target='#myModal6')
+                | Choose
+              // The Modal
+              #myModal6.modal
+                .modal-dialog.modal-dialog-centered
+                  .modal-content.bg-dark
+                    // Modal Header
+                    .modal-header
+                      h4.modal-title.text-light ----------------- คำสั่งซื้อ -----------------
+                      button.close(type='button' data-dismiss='modal') ×
+                    // Modal body
+                    .modal-body
+                      table.table.table-dark.table-borderless
+                        thead.thead-dark
+                          tr
+                            th รหัส
+                            th รายการคำสั่งซื้อ
+                            th ราคา (Baht)
+                            th สถานะ
+                        tbody
+                          tr
+                            td 006
+                            td Pie
+                            td 125
+                            td Delivery
+                          tr
+                            td
+                            td สตรอเบอร์รี่
+                            td 15
+                            td
+                          tr
+                            td
+                            td ค่าจัดส่ง
+                            td 10
+                            td
+                          tr
+                            td จำนวน
+                            td 1 รายการ
+                            td ราคารวม
+                            td 145 /Baht
+                      button.btn.btn-success(type='submit' value='Submit') Submit
+                    // Modal footer
+                    .modal-footer
+                      button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Cancle
     script(src='ingre.js')

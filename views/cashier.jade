@@ -20,28 +20,28 @@ html(lang='en')
             .dropdown-menu.bg-dark(style='text-align: left; width: 267px; height: 744px; margin-left: -17px;')
               a.navbar-brand.text-light
                 br
-                img(src='https://i.pinimg.com/originals/59/c6/b9/59c6b99f6d5c936941359af651826778.png' alt='logo' style='width:75px; padding-left: 25px;')
+                img(src='img/chameleon.png' alt='logo' style='width:75px; padding-left: 25px;')
                 |                 Staff Name: Pop
                 br
                 br
-              a.dropdown-item(style='color: black;' href='/ingredient')
-                img(src='https://i.pinimg.com/originals/3d/ec/73/3dec73eefb1eb4fdae1a7a0e49b5c936.png' alt='logo' style='width: 45px; margin-left: 10px;')
+              a.dropdown-item(style='color: black;' href='ingredient.html')
+                img(src='img/harvest.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลวัตถุดิบ
               hr(width='200px' size='5' color='white')
-              a.dropdown-item(style='color: black;' href='/menu')
-                img(src='https://i.pinimg.com/originals/19/b3/b3/19b3b369892b34d4c4367bd6494529a4.png' alt='logo' style='width: 45px; margin-left: 10px;')
+              a.dropdown-item(style='color: black;' href='index.html')
+                img(src='img/cupcake.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลของหวาน
               hr(width='200px' size='5' color='white')
-              a.dropdown-item(style='color: black;' href='/cashier')
-                img(src='https://i.pinimg.com/originals/93/c6/be/93c6be305c1d7d3a0dd02993ff031f69.png' alt='logo' style='width: 45px; margin-left: 10px;')
+              a.dropdown-item(style='color: black;' href='cashier.html')
+                img(src='img/cheque.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลการขาย
               hr(width='200px' size='5' color='white')
-              a.dropdown-item(style='color: black;' href='/cook')
-                img(src='https://i.pinimg.com/originals/98/82/ec/9882ec514a7646b304d06f8f42a15a0c.png' alt='logo' style='width: 45px; margin-left: 10px;')
+              a.dropdown-item(style='color: black;' href='cook.html')
+                img(src='img/cooking.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลฝ่ายห้องครัว
               hr(width='200px' size='5' color='white')
               a.dropdown-item(style='color: black;' href='#')
-                img(src='https://i.pinimg.com/originals/5c/44/92/5c44929ceecbafc93b5bf1320aeb574f.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                img(src='img/delivery-man.png' alt='logo' style='width: 45px; margin-left: 10px;')
                 | -->ข้อมูลการจัดส่ง
               hr(width='200px' size='5' color='white')
               br
@@ -49,9 +49,10 @@ html(lang='en')
                 button.btn.btn-danger.btn-block(type='button') Logout
       // Brand/logo
       a.navbar-brand MamaPenguin
-      img(src='https://i.pinimg.com/originals/13/b9/9a/13b99aab8bc10571cb6d0fc155f05a12.png' alt='logo' style='width:40px;')
+      img(src='img/logopen.png' alt='logo' style='width:40px;')
     .container.p-3.my-3
       h1.text-black.text-center ตารางจัดการข้อมูลการขาย
+      hr(width='45%' style='border: 2px solid rgb(250, 247, 247);')
     br
     // ส่วนของตาราง
     .container
@@ -70,7 +71,7 @@ html(lang='en')
           tr
             td 001
             td 12-02-64 09:20:01
-            td Waffle,Blueberry +5,ค่าจัดส่ง 5บาท
+            td Waffle,บราวนี่ +10,ค่าจัดส่ง 5บาท
             td 1
             td Delivery
             td
@@ -123,7 +124,7 @@ html(lang='en')
           tr
             td 002
             td 12-02-64 09:24:05
-            td Cake, Ice-cream +10
+            td Cake,ไอศกรีม +10
             td 2
             td Take Home
             td
@@ -171,7 +172,7 @@ html(lang='en')
           tr
             td 003
             td 12-02-64 09:25:30
-            td Macaroons
+            td Pancake
             td 5
             td Seat
             td
@@ -214,7 +215,7 @@ html(lang='en')
           tr
             td 004
             td 12-02-64 10:30:28
-            td Bingsu,Brownies +10,ค่าจัดส่ง 10บาท
+            td Pie,สตรอเบอร์รี่ +15,ค่าจัดส่ง 10บาท
             td 1
             td Delivery
             td
@@ -267,9 +268,9 @@ html(lang='en')
           tr
             td 005
             td 12-02-64 10:40:07
-            td Pancake,Blueberry +5
-            td 3
-            td Take Home
+            td Bingsu,สตรอเบอร์รี่ +15
+            td 2
+            td Seat
             td
               button.btn.btn-success(type='button' data-toggle='modal' data-target='#myModal4')
                 | Choose

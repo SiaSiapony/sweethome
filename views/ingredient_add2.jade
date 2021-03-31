@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Page Topping
+    title Page Ingredient
     // Bootstrap CSS
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous')
     script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
@@ -57,37 +57,34 @@ html(lang='en')
       a.navbar-brand MamaPenguin
       img(src='https://i.pinimg.com/originals/13/b9/9a/13b99aab8bc10571cb6d0fc155f05a12.png' alt='logo' style='width:40px;')
     .container.p-3.my-3
-      h1.text-black.text-center ตารางจัดการข้อมูลท็อปปิ้ง
+      h1.text-black.text-center ตารางจัดการข้อมูลวัตถุดิบ
       hr(width='45%' style='border: 2px solid rgb(250, 247, 247);')
     // ส่วนของ การกด +add แล้วจะขึ้น Modal ขึ้นมาให้กรอกข้อมูลเพิ่มรายการวัตถุดิบ
     .container
       // Button to Open the Modal
       button.btn.btn-primary(type='button' data-toggle='modal' data-target='#myModal')
-        | +Add Topping
+        | +Add Ingredient
     // The Modal
     #myModal.modal.fade
       .modal-dialog
         .modal-content
           // Modal Header
           .modal-header
-            h4.modal-title เพิ่มรายการท็อปปิ้ง
+            h4.modal-title เพิ่มรายการวัตถุดิบ
             button.close(type='button' data-dismiss='modal') ×
           // Modal body
           .modal-body
-            form(action='./action_page.php')
+            form(action='/action_page.php')
               .form-group
                 label(for='name') Name:
-                input#name.form-control(type='text' placeholder='Name Topping')
-              .form-group
-                label(for='price') Price:
-                input#price.form-control(type='number' min='1' max='1000' value='0' placeholder='Price Topping')
+                input#name.form-control(type='text' placeholder='Name Ingredient')
               .form-group
                 label(for='amount') Amount:
-                input#amount.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Topping')
+                input#amount.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Ingredient')
               .form-group
                 label(for='unit') Unit:
-                input#unit.form-control(type='text' placeholder='Unit Topping')
-              button.btn.btn-primary(type='submit' onclick='alert_top()' value='submit') Submit
+                input#unit.form-control(type='text' placeholder='Unit....')
+              input.btn.btn-primary(type='submit' onclick='alert_ingre()' value='submit')
           // Modal footer
           .modal-footer
             button.btn.btn-danger(type='button' data-dismiss='modal') Close
@@ -99,19 +96,17 @@ html(lang='en')
         thead
           tr
             th ID
-            th Topping
-            th Price (Baht)
+            th(<th='') Ingredient
             th Unit
             th Amount
             th Delete
         tbody
           tr
             td 001
-            td บราวนี่
-            td 10
-            td ก้อน
+            td นมข้นหวาน
+            td มิลลิลิตร
             td
-              | 200
+              | 1000
               button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal1')
                 i.fas.fa-edit
               // The Modal
@@ -120,7 +115,7 @@ html(lang='en')
                   .modal-content
                     // Modal Header
                     .modal-header
-                      h4.modal-title.text-dark แก้ไขจำนวนท็อปปิ้ง
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
                       button.close(type='button' data-dismiss='modal') ×
                     // Modal body
                     .modal-body
@@ -136,11 +131,10 @@ html(lang='en')
               button.btn.btn-danger(type='button') Delete
           tr
             td 002
-            td มาร์ชเมลโล่
-            td 10
-            td ก้อน
+            td ผงโกโก้
+            td ช้อนโต๊ะ
             td
-              | 1000
+              | 500
               button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal2')
                 i.fas.fa-edit
               // The Modal
@@ -149,7 +143,7 @@ html(lang='en')
                   .modal-content
                     // Modal Header
                     .modal-header
-                      h4.modal-title.text-dark แก้ไขจำนวนท็อปปิ้ง
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
                       button.close(type='button' data-dismiss='modal') ×
                     // Modal body
                     .modal-body
@@ -165,11 +159,10 @@ html(lang='en')
               button.btn.btn-danger(type='button') Delete
           tr
             td 003
-            td สตรอเบอร์รี่
-            td 15
-            td ลูก
+            td นมข้นจืด
+            td มิลลิกรัม
             td
-              | 600
+              | 1000
               button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal3')
                 i.fas.fa-edit
               // The Modal
@@ -178,7 +171,7 @@ html(lang='en')
                   .modal-content
                     // Modal Header
                     .modal-header
-                      h4.modal-title.text-dark แก้ไขจำนวนท็อปปิ้ง
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
                       button.close(type='button' data-dismiss='modal') ×
                     // Modal body
                     .modal-body
@@ -194,40 +187,10 @@ html(lang='en')
               button.btn.btn-danger(type='button') Delete
           tr
             td 004
-            td นูเทลล่า
-            td 20
-            td ช้อน
+            td วิปปิ้งครีม
+            td มิลลิกรัม
             td
-              | 500
-              button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal4')
-                i.fas.fa-edit
-              // The Modal
-              #myModal4.modal.fade
-                .modal-dialog.modal-dialog-centered
-                  .modal-content
-                    // Modal Header
-                    .modal-header
-                      h4.modal-title.text-dark แก้ไขจำนวนท็อปปิ้ง
-                      button.close(type='button' data-dismiss='modal') ×
-                    // Modal body
-                    .modal-body
-                      form(action='./action_page.php')
-                        .form-group.text-dark.text-left
-                          label(for='amount4') Amount:
-                          input#amount4.form-control(type='number' min='1' max='100' value='0' placeholder='Amount')
-                        button.btn.btn-primary(type='submit' value='submit') Submit
-                    // Modal footer
-                    .modal-footer
-                      button.btn.btn-danger(type='button' data-dismiss='modal') Close
-            td
-              button.btn.btn-danger(type='button') Delete
-          tr
-            td 005
-            td ไอศกรีม
-            td 10
-            td ก้อน
-            td
-              | 200
+              | 2000
               button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal5')
                 i.fas.fa-edit
               // The Modal
@@ -236,7 +199,7 @@ html(lang='en')
                   .modal-content
                     // Modal Header
                     .modal-header
-                      h4.modal-title.text-dark แก้ไขจำนวนท็อปปิ้ง
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
                       button.close(type='button' data-dismiss='modal') ×
                     // Modal body
                     .modal-body
@@ -251,10 +214,9 @@ html(lang='en')
             td
               button.btn.btn-danger(type='button') Delete
           tr
-            td 006
-            td ผงไมโล
-            td 10
-            td ช้อน
+            td 005
+            td น้ำตาลทรายแดง
+            td กรัม
             td
               | 1000
               button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal6')
@@ -265,7 +227,7 @@ html(lang='en')
                   .modal-content
                     // Modal Header
                     .modal-header
-                      h4.modal-title.text-dark แก้ไขจำนวนท็อปปิ้ง
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
                       button.close(type='button' data-dismiss='modal') ×
                     // Modal body
                     .modal-body
@@ -281,27 +243,138 @@ html(lang='en')
               button.btn.btn-danger(type='button') Delete
           tr
             td 006
-            td ผงชาเขียว
-            td 10
-            td ช้อน
+            td น้ำตาลทราย
+            td ถ้วยตวง
             td
               | 1000
-              button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal6')
+              button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal7')
                 i.fas.fa-edit
               // The Modal
-              #myModal6.modal.fade
+              #myModal7.modal.fade
                 .modal-dialog.modal-dialog-centered
                   .modal-content
                     // Modal Header
                     .modal-header
-                      h4.modal-title.text-dark แก้ไขจำนวนท็อปปิ้ง
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
                       button.close(type='button' data-dismiss='modal') ×
                     // Modal body
                     .modal-body
                       form(action='./action_page.php')
                         .form-group.text-dark.text-left
-                          label(for='amount6') Amount:
-                          input#amount6.form-control(type='number' min='1' max='100' value='0' placeholder='Amount')
+                          label(for='amount7') Amount:
+                          input#amount7.form-control(type='number' min='1' max='100' value='0' placeholder='Amount')
+                        button.btn.btn-primary(type='submit' value='submit') Submit
+                    // Modal footer
+                    .modal-footer
+                      button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Delete
+          tr
+            td 007
+            td ไข่ไก่
+            td ฟอง
+            td
+              | 400
+              button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal8')
+                i.fas.fa-edit
+              // The Modal
+              #myModal8.modal.fade
+                .modal-dialog.modal-dialog-centered
+                  .modal-content
+                    // Modal Header
+                    .modal-header
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
+                      button.close(type='button' data-dismiss='modal') ×
+                    // Modal body
+                    .modal-body
+                      form(action='./action_page.php')
+                        .form-group.text-dark.text-left
+                          label(for='amount8') Amount:
+                          input#amount8.form-control(type='number' min='1' max='100' value='0' placeholder='Amount')
+                        button.btn.btn-primary(type='submit' value='submit') Submit
+                    // Modal footer
+                    .modal-footer
+                      button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Delete
+          tr
+            td 008
+            td ผงชาเขียว
+            td กรัม
+            td
+              | 1000
+              button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal9')
+                i.fas.fa-edit
+              // The Modal
+              #myModal9.modal.fade
+                .modal-dialog.modal-dialog-centered
+                  .modal-content
+                    // Modal Header
+                    .modal-header
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
+                      button.close(type='button' data-dismiss='modal') ×
+                    // Modal body
+                    .modal-body
+                      form(action='./action_page.php')
+                        .form-group.text-dark.text-left
+                          label(for='amount9') Amount:
+                          input#amount9.form-control(type='number' min='1' max='100' value='0' placeholder='Amount')
+                        button.btn.btn-primary(type='submit' value='submit') Submit
+                    // Modal footer
+                    .modal-footer
+                      button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Delete
+          tr
+            td 009
+            td ครีมสด
+            td มิลลิลิตร
+            td
+              | 1000
+              button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal10')
+                i.fas.fa-edit
+              // The Modal
+              #myModal10.modal.fade
+                .modal-dialog.modal-dialog-centered
+                  .modal-content
+                    // Modal Header
+                    .modal-header
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
+                      button.close(type='button' data-dismiss='modal') ×
+                    // Modal body
+                    .modal-body
+                      form(action='./action_page.php')
+                        .form-group.text-dark.text-left
+                          label(for='amount10') Amount:
+                          input#amount10.form-control(type='number' min='1' max='100' value='0' placeholder='Amount')
+                        button.btn.btn-primary(type='submit' value='submit') Submit
+                    // Modal footer
+                    .modal-footer
+                      button.btn.btn-danger(type='button' data-dismiss='modal') Close
+            td
+              button.btn.btn-danger(type='button') Delete
+          tr
+            td 0010
+            td นมสด
+            td มิลลิกรัม
+            td
+              | 400
+              button.btn.btn-success.btn-sm(type='button' data-toggle='modal' data-target='#myModal4')
+                i.fas.fa-edit
+              // The Modal
+              #myModal4.modal.fade
+                .modal-dialog.modal-dialog-centered
+                  .modal-content
+                    // Modal Header
+                    .modal-header
+                      h4.modal-title.text-dark แก้ไขจำนวนวัตถุดิบ
+                      button.close(type='button' data-dismiss='modal') ×
+                    // Modal body
+                    .modal-body
+                      form(action='./action_page.php')
+                        .form-group.text-dark.text-left
+                          label(for='amount4') Amount:
+                          input#amount4.form-control(type='number' min='1' max='100' value='0' placeholder='Amount')
                         button.btn.btn-primary(type='submit' value='submit') Submit
                     // Modal footer
                     .modal-footer

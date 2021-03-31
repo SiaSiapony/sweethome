@@ -515,6 +515,57 @@ html(lang='en')
                 // Modal footer
                 .modal-footer
                   button.btn.btn-danger(type='button' data-dismiss='modal') Close
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='img/bingsu.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Bingsu
+          p.card-text Bingsu is Ice from North Pole.
+          h3.card-title 125$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal2')
+            | Choose
+          #myModal2.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Bingsu
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Bingsu is Ice from North Pole.
+                      |                             ราคา 125 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | นูเทลล่า +20$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +15$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount2') Amount:
+                        input#amount2.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel2') Select Status (select one):
+                        select#sel2.form-control(name='sellist2')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
     br
     br
     script(src='ingre.js')
