@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var {Ing} = require('../models/ingredient')
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  const ing = await Ing.find();
-  res.render('index', {title: "Ing", ing: ing})
+  res.render('index');
 });
 
 /* page */
@@ -21,6 +19,12 @@ router.get('/menu', function(req,res,next){
   res.render('menu');
 });
 
+router.get('/cashier', function(req,res,next){
+  res.render('cashier')
+})
 
+router.get('/cook', function(req,res,next){
+  res.render('cook')
+})
 
 module.exports = router;

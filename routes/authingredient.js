@@ -9,5 +9,4 @@ router.post('/ingredient', async (req, res) => {
   res.render('ingredient', { ingredient })
 })
 
-
 module.exports = router

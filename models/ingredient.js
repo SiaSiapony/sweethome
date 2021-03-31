@@ -5,11 +5,13 @@ const Schema = mongoose.Schema
 const ingredientSchema = new Schema({
     name: {
         type: String,
-        unique: true
+        unique: true,
+        required: true,
+        dropDups: true
     },
     amount: Number,
     unit: String
-});
+}, { versionKey: false });
 // userSchema.id instanceof mongoose.Types.ObjectId;
 const IngreModel = mongoose.model('ingredient', ingredientSchema);
 

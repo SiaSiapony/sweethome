@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var ingredientRouter = require('./routes/authingredient');
 var toppingRouter = require('./routes/authtopping');
 var menuRouter = require('./routes/authmenu');
+var manageRouter = require('./routes/authmanage');
 
 require('./db');
 
@@ -30,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/authingredient', ingredientRouter)
 app.use('/authtopping', toppingRouter)
 app.use('/authmenu', menuRouter)
+app.use('/authmanage', manageRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
