@@ -1,12 +1,567 @@
-extends layout
-
-block content
-  h1 = title 
-  ul
-    for hom in ing
-      li.listItem(class=hom.unit ? "unit" : "")
-        | Name: #{hom.name}
-        | Unit: #{hom.unit}
-
-    else
-      p No Todos Found
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Page Main
+    // Bootstrap CSS
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns' crossorigin='anonymous')
+    script(src='https://kit.fontawesome.com/9f82b43210.js' crossorigin='anonymous')
+  body(style='background: pink')
+    nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+      ul.navbar-nav.mr-auto.navbar-light
+        li.nav-item.active
+          .nav-item.dropdown
+            button.btn.btn-dark(type='button' data-toggle='dropdown')
+              i.fas.fa-bars
+            .dropdown-menu.bg-dark(style='text-align: left; width: 267px; height: 744px; margin-left: -17px; ')
+              a.navbar-brand.text-light
+                br
+                img(src='https://i.pinimg.com/originals/d7/0b/cf/d70bcfae0424ff8cbc311dcf03b7922f.png' alt='logo' style='width:75px; padding-left: 25px;')
+                |                 Staff Name: Aof
+                br
+                br
+              a.dropdown-item(style='color: black;' href='/ingredient')
+                img(src='https://i.pinimg.com/originals/3d/ec/73/3dec73eefb1eb4fdae1a7a0e49b5c936.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลวัตถุดิบ
+              hr(width='200px' size='5' color='white')
+              a.dropdown-item(style='color: black;' href='/menu')
+                img(src='https://i.pinimg.com/originals/19/b3/b3/19b3b369892b34d4c4367bd6494529a4.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลของหวาน
+              hr(width='200px' size='5' color='white')
+              a.dropdown-item(style='color: black;' href='/cashier')
+                img(src='https://i.pinimg.com/originals/93/c6/be/93c6be305c1d7d3a0dd02993ff031f69.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลการขาย
+              hr(width='200px' size='5' color='white')
+              a.dropdown-item(style='color: black;' href='/cook')
+                img(src='https://i.pinimg.com/originals/98/82/ec/9882ec514a7646b304d06f8f42a15a0c.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลฝ่ายห้องครัว
+              hr(width='200px' size='5' color='white')
+              a.dropdown-item(style='color: black;' href='#')
+                img(src='https://i.pinimg.com/originals/5c/44/92/5c44929ceecbafc93b5bf1320aeb574f.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลการจัดส่ง
+              hr(width='200px' size='5' color='white')
+              br
+              .container-sm
+                button.btn.btn-danger.btn-block(type='button') Logout
+        li.nav-item
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#basket')
+            i.fas.fa-shopping-basket
+          // The Modal
+          #basket.modal
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light ---------- รายการอาหารในตะกร้า ----------
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body
+                  table.table.table-dark.table-borderless
+                    thead.thead-dark
+                      tr
+                        th รายการอาหาร
+                        th ราคา(Baht)
+                        th จำนวน
+                    tbody
+                      tr
+                        td Waffle
+                        td 120
+                        td 2
+                      tr
+                        td รวมราคา
+                        td 240
+                  button.btn.btn-success(type='submit' value='Submit' style='margin-left:195px') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+        li.nav-item
+          a.nav-link(href='/') Home
+      // Brand/logo
+      a.navbar-brand MamaPenguin
+      img(src='https://i.pinimg.com/originals/13/b9/9a/13b99aab8bc10571cb6d0fc155f05a12.png' alt='logo' style='width:40px;')
+    br
+    br
+    // search
+    .input-group.container-fluid(style='width: 600px;')
+      input#s1.form-control(type='search' placeholder='Search Menu ...')
+      .input-group-append
+        button.btn.btn-dark(type='button')
+          i.fa.fa-search
+    br
+    hr(width='60%' style='border: 2.5px solid rgb(250, 247, 247);')
+    br
+    .card-deck(style='width:1250px;')
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/35/ff/31/35ff31e2ffa41a1e814c179bb8f6f11f.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Kakigori
+          p.card-text kakigori is very Yummy.
+          h3.card-title 125$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal1')
+            | Choose
+          #myModal1.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Kakigori
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(class="form-add" method="POST" action="/authmanage/index")
+                    .container.text-left
+                      p.card-text kakigori is very Yummy.
+                      |                             ราคา 125 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label(for='top' required) 
+                          input#top.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input#top.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input#top.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount1' class="sr-only") Amount:
+                        input#amount1.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu' required)
+                      .form-group
+                        label(for='sel1' class="sr-only") Select Status (select one):
+                        select#sel1.form-control(name='sellist1' required)
+                          option(selected='' required) Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/e8/b9/41/e8b9416917dc1501107d6a7e21e7f1fb.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Bingsu
+          p.card-text Bingsu is Ice from North Pole.
+          h3.card-title 125$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal2')
+            | Choose
+          #myModal2.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Bingsu
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Bingsu is Ice from North Pole.
+                      |                             ราคา 125 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount2') Amount:
+                        input#amount2.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel2') Select Status (select one):
+                        select#sel2.form-control(name='sellist2')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/a4/2b/de/a42bdeac9fbe516b955b4d9cae718f89.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Granita
+          p.card-text Granita Strawberry very colorful.
+          h3.card-title 50$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal3')
+            | Choose
+          #myModal3.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Granita
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Granita Strawberry very colorful.
+                      |                             ราคา 50 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount3') Amount:
+                        input#amount3.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel3') Select Status (select one):
+                        select#sel3.form-control(name='sellist3')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+    br
+    hr(width='60%' style='border: 2.5px solid rgb(250, 247, 247);')
+    br
+    .card-deck(style='width:1250px;')
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/d7/5d/97/d75d97527519398c6a3a53cd3f4f026d.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Waffle
+          p.card-text Waffle Colorful fruit.
+          h3.card-title 120$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal4')
+            | Choose
+          #myModal4.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Waffle
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Waffle Colorful fruit.
+                      |                             ราคา 120 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount4') Amount:
+                        input#amount4.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel4') Select Status (select one):
+                        select#sel4.form-control(name='sellist4')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/59/ca/6b/59ca6bab63ce5771aedf7c1e8136e4b8.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Cake Ice-cream
+          p.card-text Cake Ice-cream chocolate
+          h3.card-title 200$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal5')
+            | Choose
+          #myModal5.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Cake Ice-cream
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Cake Ice-cream chocolate.
+                      |                             ราคา 200 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount5') Amount:
+                        input#amount5.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel5') Select Status (select one):
+                        select#sel5.form-control(name='sellist5')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/50/5a/d0/505ad03f29baecf1c986331cc44878ee.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Ice-cream
+          p.card-text Ice-cream Green Tea
+          h3.card-title 45$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal6')
+            | Choose
+          #myModal6.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Ice-cream
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Ice-cream Green Tea.
+                      |                             ราคา 45 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount6') Amount:
+                        input#amount6.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel6') Select Status (select one):
+                        select#sel6.form-control(name='sellist6')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+    br
+    hr(width='60%' style='border: 2.5px solid rgb(250, 247, 247);')
+    br
+    .card-deck(style='width:1250px;')
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/ab/57/f6/ab57f6843302de8744f944f8ac5d70fe.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Pancake
+          p.card-text Pancake everything is berry
+          h3.card-title 99$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal7')
+            | Choose
+          #myModal7.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Pancake
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Pancake everything is berry.
+                      |                             ราคา 99 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount7') Amount:
+                        input#amount7.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel7') Select Status (select one):
+                        select#sel7.form-control(name='sellist7')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/fa/bd/f1/fabdf14fd1429211985af0b5f07fd255.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Pudding
+          p.card-text Pudding Raspberry
+          h3.card-title 65$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal8')
+            | Choose
+          #myModal8.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Pudding
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Pudding Raspberry.
+                      |                             ราคา 65 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount8') Amount:
+                        input#amount8.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel8') Select Status (select one):
+                        select#sel8.form-control(name='sellist8')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+      .card.bg-light(style='left: 150px;')
+        img.card-img-top(src='https://i.pinimg.com/originals/df/39/00/df3900dc45f44e6d258f8a5420eed8cc.jpg' alt='Card image')
+        .card-body.text-center
+          h4.card-title Pie
+          p.card-text Pie Blueberry
+          h3.card-title 125$
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#myModal9')
+            | Choose
+          #myModal9.modal.fade
+            .modal-dialog.modal-dialog-centered
+              .modal-content.bg-dark
+                // Modal Header
+                .modal-header
+                  h4.modal-title.text-light Pie
+                  button.close(type='button' data-dismiss='modal') ×
+                // Modal body
+                .modal-body.text-light
+                  form(action='/action_page.php')
+                    .container.text-left
+                      p.card-text Pie Blueberry
+                      |                             ราคา 125 บาท
+                      br
+                      |                             Topping (1 Required)
+                      .form-check
+                        label.form-check-label
+                          input.form-check-input(type='checkbox' value='')
+                          | โอริโอ้ +5$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | สตรอเบอร์รี่ +10$
+                          br
+                          input.form-check-input(type='checkbox' value='')
+                          | บราวนี่ +10$
+                          br
+                    br
+                    .container-fluid.text-left
+                      .form-group
+                        label(for='amount9') Amount:
+                        input#amount9.form-control(type='number' min='1' max='100' value='0' placeholder='Amount Menu')
+                      .form-group
+                        label(for='sel9') Select Status (select one):
+                        select#sel9.form-control(name='sellist9')
+                          option(selected='') Select Status...
+                          option Delivery
+                          option Take Home
+                          option Seat
+                    br
+                    button.btn.btn-success(type='submit' value='Submit') Submit
+                // Modal footer
+                .modal-footer
+                  button.btn.btn-danger(type='button' data-dismiss='modal') Close
+    br
+    br
+    script(src='ingre.js')

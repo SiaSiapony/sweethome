@@ -13,14 +13,6 @@ const ingredientSchema = new Schema({
     unit: String
 }, { versionKey: false });
 // userSchema.id instanceof mongoose.Types.ObjectId;
-const ingreTable = mongoose.model('ingredient', ingredientSchema);
+const IngreModel = mongoose.model('ingredient', ingredientSchema);
 
-module.exports = {
-    ingredientData:function(callback){
-        var ingreData = ingreTable.find({});
-        ingreData.exec(function(err,data){
-            if(err) throw err;
-            return callback(data);
-        })
-    }
-};
+module.exports = IngreModel;

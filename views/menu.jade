@@ -2,146 +2,100 @@ doctype html
 html(lang='en')
   head
     meta(charset='UTF-8')
-    |     
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    |     
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    |     
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Page Menu
     // Bootstrap CSS
-    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css', integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l', crossorigin='anonymous')
-    |     
-    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js', integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj', crossorigin='anonymous')
-    |     
-    script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js', integrity='sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns', crossorigin='anonymous')
-    |     
-    script(src='https://kit.fontawesome.com/9f82b43210.js', crossorigin='anonymous')
-  |   
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns' crossorigin='anonymous')
+    script(src='https://kit.fontawesome.com/9f82b43210.js' crossorigin='anonymous')
   body(style='background: pink')
     nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
       ul.navbar-nav.mr-auto.navbar-light
         li.nav-item.active
           .nav-item.dropdown
-            button.btn.btn-dark(type='button', data-toggle='dropdown')
+            button.btn.btn-dark(type='button' data-toggle='dropdown')
               i.fas.fa-bars
-            |           
-            |             
             .dropdown-menu.bg-dark(style='text-align: left; width: 267px; height: 744px; margin-left: -17px; ')
               a.navbar-brand.text-light
                 br
-                |                 
-                img(src='img/kitty.png', alt='logo', style='width:75px; padding-left: 25px;')
+                img(src='https://i.pinimg.com/originals/01/a2/f6/01a2f6fb22f674549fc40a6efa3e9c98.png' alt='logo' style='width:75px; padding-left: 25px;')
                 |                 Staff Name: Mint
-                |               
                 br
                 br
-              |               
-              |               
-              a.dropdown-item(style='color: black;', href='ingredient.html')
-                img(src='img/harvest.png', alt='logo', style='width: 45px; margin-left: 10px;')
-                | --&gt;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE27;&#xE31;&#xE15;&#xE16;&#xE38;&#xE14;&#xE34;&#xE1A;
-              hr(width='200px', size='5', color='white')
-              |               
-              a.dropdown-item(style='color: black;', href='#')
-                img(src='img/cupcake.png', alt='logo', style='width: 45px; margin-left: 10px;')
-                | --&gt;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE02;&#xE2D;&#xE07;&#xE2B;&#xE27;&#xE32;&#xE19;
-              hr(width='200px', size='5', color='white')
-              |               
-              a.dropdown-item(style='color: black;', href='sales_table.html')
-                img(src='img/cheque.png', alt='logo', style='width: 45px; margin-left: 10px;')
-                | --&gt;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE01;&#xE32;&#xE23;&#xE02;&#xE32;&#xE22;
-              hr(width='200px', size='5', color='white')
-              |               
-              a.dropdown-item(style='color: black;', href='kitchen.html')
-                img(src='img/cooking.png', alt='logo', style='width: 45px; margin-left: 10px;')
-                | --&gt;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE1D;&#xE48;&#xE32;&#xE22;&#xE2B;&#xE49;&#xE2D;&#xE07;&#xE04;&#xE23;&#xE31;&#xE27;
-              hr(width='200px', size='5', color='white')
-              |               
-              a.dropdown-item(style='color: black;', href='#')
-                img(src='img/delivery-man.png', alt='logo', style='width: 45px; margin-left: 10px;')
-                | --&gt;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE01;&#xE32;&#xE23;&#xE08;&#xE31;&#xE14;&#xE2A;&#xE48;&#xE07;
-              hr(width='200px', size='5', color='white')
-              |               
-              |               
+              a.dropdown-item(style='color: black;' href='/ingredient')
+                img(src='https://i.pinimg.com/originals/3d/ec/73/3dec73eefb1eb4fdae1a7a0e49b5c936.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลวัตถุดิบ
+              hr(width='200px' size='5' color='white')
+              a.dropdown-item(style='color: black;' href='/menu')
+                img(src='https://i.pinimg.com/originals/19/b3/b3/19b3b369892b34d4c4367bd6494529a4.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลของหวาน
+              hr(width='200px' size='5' color='white')
+              a.dropdown-item(style='color: black;' href='/cashier')
+                img(src='https://i.pinimg.com/originals/93/c6/be/93c6be305c1d7d3a0dd02993ff031f69.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลการขาย
+              hr(width='200px' size='5' color='white')
+              a.dropdown-item(style='color: black;' href='/cook')
+                img(src='https://i.pinimg.com/originals/98/82/ec/9882ec514a7646b304d06f8f42a15a0c.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลฝ่ายห้องครัว
+              hr(width='200px' size='5' color='white')
+              a.dropdown-item(style='color: black;' href='#')
+                img(src='https://i.pinimg.com/originals/5c/44/92/5c44929ceecbafc93b5bf1320aeb574f.png' alt='logo' style='width: 45px; margin-left: 10px;')
+                | -->ข้อมูลการจัดส่ง
+              hr(width='200px' size='5' color='white')
               br
-              |               
               .container-sm
                 button.btn.btn-danger.btn-block(type='button') Logout
-        |         
         li.nav-item
-          a.nav-link(href='ingredient.html') &#xE15;&#xE32;&#xE23;&#xE32;&#xE07;&#xE08;&#xE31;&#xE14;&#xE01;&#xE32;&#xE23;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE27;&#xE31;&#xE15;&#xE16;&#xE38;&#xE14;&#xE34;&#xE1A;
-        |         
+          a.nav-link(href='/ingredient') ตารางจัดการข้อมูลวัตถุดิบ
         li.nav-item
-          a.nav-link(href='topping.html') &#xE15;&#xE32;&#xE23;&#xE32;&#xE07;&#xE08;&#xE31;&#xE14;&#xE01;&#xE32;&#xE23;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE17;&#xE47;&#xE2D;&#xE1B;&#xE1B;&#xE34;&#xE49;&#xE07;
-        |         
+          a.nav-link(href='/topping') ตารางจัดการข้อมูลท็อปปิ้ง
         li.nav-item
-          a.nav-link(href='menu.html') &#xE15;&#xE32;&#xE23;&#xE32;&#xE07;&#xE08;&#xE31;&#xE14;&#xE01;&#xE32;&#xE23;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE40;&#xE21;&#xE19;&#xE39;&#xE02;&#xE2D;&#xE07;&#xE2B;&#xE27;&#xE32;&#xE19;
+          a.nav-link(href='/menu') ตารางจัดการข้อมูลเมนูของหวาน
       // Brand/logo
       a.navbar-brand MamaPenguin
-      |           
-      img(src='img/logopen.png', alt='logo', style='width:40px;')
-    |     
+      img(src='https://i.pinimg.com/originals/13/b9/9a/13b99aab8bc10571cb6d0fc155f05a12.png' alt='logo' style='width:40px;')
     .container.p-3.my-3
-      h1.text-black.text-center &#xE15;&#xE32;&#xE23;&#xE32;&#xE07;&#xE08;&#xE31;&#xE14;&#xE01;&#xE32;&#xE23;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE40;&#xE21;&#xE19;&#xE39;&#xE02;&#xE2D;&#xE07;&#xE2B;&#xE27;&#xE32;&#xE19;
+      h1.text-black.text-center ตารางจัดการข้อมูลเมนูของหวาน
     // ส่วนของ การกด +add แล้วจะขึ้น Modal ขึ้นมาให้กรอกข้อมูลเพิ่มรายการวัตถุดิบ
     .container
       // Button to Open the Modal
-      button.btn.btn-primary(type='button', data-toggle='modal', data-target='#myModal')
-        | +Add Ingredient
+      button.btn.btn-primary(type='button' data-toggle='modal' data-target='#myModal')
+        | +Add Menu
     // The Modal
     #myModal.modal.fade
       .modal-dialog
         .modal-content
           // Modal Header
           .modal-header
-            h4.modal-title &#xE40;&#xE1E;&#xE34;&#xE48;&#xE21;&#xE23;&#xE32;&#xE22;&#xE01;&#xE32;&#xE23;&#xE40;&#xE21;&#xE19;&#xE39;&#xE02;&#xE2D;&#xE07;&#xE2B;&#xE27;&#xE32;&#xE19;
-            |               
-            button.close(type='button', data-dismiss='modal') &times;
+            h4.modal-title เพิ่มรายการเมนูของหวาน
+            button.close(type='button' data-dismiss='modal') ×
           // Modal body
           .modal-body
             form(class="form-add" method="POST" action="/authmenu/menu")
               .form-group
-                label(for='name') Name:
-                |                   
+                label(for='name' class="sr-only") Name:
                 input(type="text" name="name" id="name" class="form-control" placeholder="NAME" required)
-              |                 
               .form-group
-                label(for='detail') Price:
-                |    
-                input(type="text" name="detail" id="detail" class="form-control" placeholder="Detail of Menu" required)               
-              |                 
+                label(for='detail' class="sr-only") Detail:
+                input(type="text" name="detail" id="detail" class="form-control" placeholder="Detail" required)
               .form-group
-                label(for='price') Price:
-                |                   
+                label(for='price' class="sr-only") Price:
                 input(type="number" min='1' max='1000' value='0' name="price" id="price" class="form-control" placeholder="price" required)
-              |                 
               .form-group
-                label(for='amount') Amount:
-                |                   
-                input(type="number" min='1' max='1000' value='0' name="amount" id="amount" class="form-control" placeholder="Amount" required)
-              |                 
-              .form-group
-                label(for='Atopping') Topping:
-                |                   
-                input(type="text" name="a1" id="topping1" class="form-control" placeholder="Topping #1" required)
+                label(for='Atopping' class="sr-only") Topping:
+                input(type="text" name="t1" id="t1" class="form-control" placeholder="Topping#1" required)
                 br
-                |                   
-                input(type="text" name="a2" id="topping2" class="form-control" placeholder="Topping #2" required)
+                input(type="text" name="t2" id="t2" class="form-control" placeholder="Topping#2" required)
                 br
-                |                   
-                input(type="text" name="a3" id="topping3" class="form-control" placeholder="Topping #3" required)
-              |                 
+                input(type="text" name="t3" id="t3" class="form-control" placeholder="Topping#3" required)
               .form-group
-                input.form-control-file.border(type='file', name='file')
-              |                 
-              |               
-              |               
-              button.btn.btn-primary(type='submit', value='submit') Submit
+                input.form-control-file.border(type='file' name='file')
+              button.btn.btn-primary(type='submit' value='submit') Submit
           // Modal footer
           .modal-footer
-            button.btn.btn-danger(type='button', data-dismiss='modal') Close
-    |    
-    |   
+            button.btn.btn-danger(type='button' data-dismiss='modal') Close
     br
     // ส่วนของตาราง
     .container
@@ -150,74 +104,38 @@ html(lang='en')
         thead
           tr
             th ID
-            |             
             th Menu
-            |             
             th Price (Baht)
-            |             
-            th Edit
-            |             
             th Delete
-        |         
         tbody
           tr
             td 001
-            |             
             td Bingsu
-            |             
             td 125
-            |             
-            td 20
-            |             
             td
               button.btn.btn-danger(type='button') Delete
-          |           
           tr
             td 002
-            |             
             td Ice-cream
-            |             
             td 45
-            |             
-            td 30
-            |             
             td
               button.btn.btn-danger(type='button') Delete
-          |           
           tr
             td 003
-            |             
             td Granita
-            |             
             td 125
-            |             
-            td 10
-            |             
             td
               button.btn.btn-danger(type='button') Delete
-          |           
           tr
             td 004
-            |             
             td Kakigori
-            |             
             td 20
-            |             
-            td 30
-            |             
             td
               button.btn.btn-danger(type='button') Delete
-          |           
           tr
             td 005
-            |             
             td Cake Ice-cream
-            |             
             td 250
-            |             
-            td 20
-            |             
             td
               button.btn.btn-danger(type='button') Delete
-    |     
     script(src='ingre.js')
